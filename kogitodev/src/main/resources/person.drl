@@ -1,0 +1,14 @@
+package org.acme.kogito.rules;
+
+import org.acme.kogito.model.Person;
+
+rule "Check if person is adult"
+when
+    $person : Person()
+then
+    if ($person.getAge() >= 18) {
+        $person.setAdult(true);
+    } else {
+        $person.setAdult(false);
+    }
+end
